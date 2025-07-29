@@ -70,7 +70,7 @@ public class SecurityConfig {
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.addAllowedOrigin("http://localhost:4200");
+        config.addAllowedOrigin("https://subjective-mosquito-befor-5fe492d2.koyeb.app/");
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
 
