@@ -1,0 +1,2 @@
+Modular Monolith + MVC Architecture
+
