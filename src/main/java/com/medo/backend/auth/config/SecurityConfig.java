@@ -41,6 +41,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(AbstractHttpConfigurer::disable)
+                .cors(Customizer.withDefaults())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth ->
                          auth.requestMatchers(HttpMethod.POST , "/auth/login").permitAll()
@@ -70,7 +71,7 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.addAllowedOrigin("https://subjective-mosquito-befor-5fe492d2.koyeb.app"); // ✅ no trailing slash
+        config.addAllowedOrigin("https://subjective-mosquito-befor-5fe492d2.koyeb.app"); // No trailing slash
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
 
