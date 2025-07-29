@@ -12,28 +12,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(name = "users") // Avoid reserved keyword
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "user")
 public class User {
-    
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long userId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;  // Simple and conventional
+
     private String name;
     private String email;
     private String password;
     private String bio;
     private String avatarUrl;
+
     @OneToMany(mappedBy = "user")
     private List<Competence> competences;
+
     private int reputation;
+
     @OneToMany(mappedBy = "user")
-    private  List<Badget> badgets;
+    private List<Badget> badgets;
+
     private String niveau;
+
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Question> questions = new ArrayList<>();
-
 }

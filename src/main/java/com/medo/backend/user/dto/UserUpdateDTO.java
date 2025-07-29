@@ -26,7 +26,7 @@ public class UserUpdateDTO {
     public UserUpdateDTO userToDto(User user) {
 
         return UserUpdateDTO.builder()
-                .userId(user.getUserId())
+                .userId(user.getId())
                 .name(user.getName())
                 .email(user.getEmail())
                 .bio(user.getBio())
